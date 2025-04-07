@@ -1,0 +1,529 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #201527;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background: #402b4e;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff0b4;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f8f8f8;
+}
+
+main {
+    margin-top: 80px;
+    padding: 20px;
+}
+
+/* Анимация появления текста */
+.content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.content.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Эффект просвечивания текста при наведении */
+.content p {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.content p:hover {
+    opacity: 0.6;
+}
+
+/* Размер картинок и эффект при наведении */
+img {
+    width: 60%;  /* Сделали картинки немного меньше */
+    max-width: 400px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+
+audio {
+    margin-top: 20px;
+}
+/* Стили для аудиоплеера */
+audio {
+    width: 50%;
+    max-width: 350px;
+    display: block;
+    margin: 20px auto;
+    background: #554154); /* Розово-кремовый фон */
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Эффект при наведении */
+audio:hover {
+    transform: scale(1.05); 
+}
+
+/* Стили для встроенных элементов аудиоплеера */
+audio::-webkit-media-controls-panel {
+    background: linear-gradient(to right, #ff7eb3, #ffb6c1, #f5e6c8);
+    border-radius: 10px;
+}
+
+/* Кнопки управления */
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-pause-button {
+    background-color: #ff7eb3;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+audio::-webkit-media-controls-play-button:hover,
+audio::-webkit-media-controls-pause-button:hover {
+    background-color: #ee9ca7;
+}
+
+/* Ползунок громкости */
+audio::-webkit-media-controls-volume-slider {
+    accent-color: #ff7eb3;
+}
+
+/* Ползунок прогресса */
+audio::-webkit-media-controls-timeline {
+    accent-color: #ee9ca7;
+}
+/* Выравнивание картинок в разделе "Любимые песни" */
+#music img {
+    display: inline-block;
+    width: 150px; /* Размер картинок */
+    height: auto;
+    margin: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Поднимаем картинки при наведении */
+#music img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Центрирование контента */
+#music {
+    text-align: center;
+}
+
+/* Увеличенный размер аудиоплеера */
+#music audio {
+    width: 160px; /* Примерно как у картинок */
+    display: block;
+    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Эффект при наведении */
+#music audio:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Контейнер для песен (выставляет их в линию) */
+/* Контейнер для песен */
+/* Контейнер для песен */
+.music-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+    gap: 10px; /* Отступы между элементами */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.song {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.song img {
+    width: 100%;
+    max-width: 150px;
+    aspect-ratio: 1 / 1; /* Одинаковый размер */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.song audio {
+    width: 100%;
+    max-width: 150px;
+    margin-top: 5px;
+}
+
+/* Для адаптации на мобильных */
+@media (max-width: 900px) {
+    .music-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 в ряд */
+    }
+}
+
+@media (max-width: 600px) {
+    .music-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 в ряд */
+    }
+}
+
+@media (max-width: 400px) {
+    .music-container {
+        grid-template-columns: repeat(1, 1fr); /* 1 в ряд */
+    }
+}
+
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 10px auto;
+}
+
+textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+button {
+    margin-top: 5px;
+    padding: 8px;
+    border: none;
+    background-color: #ff69b4;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#comment-list-characters, #comment-list-anime {
+    margin-top: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.comment {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: #fff;
+    color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    max-width: 80%;
+    font-size: 18px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: red;
+}
+
+header img {
+    width: 120px; /* Уменьшаем размер */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: none !important; /* Полностью отключаем анимации */
+    pointer-events: none; /* Отключаем взаимодействие с курсором */
+    box-shadow: none !important; /* Убираем тень */
+    filter: none !important; /* Убираем возможные фильтры */
+}
+
+
+.iceberg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 20px;
+}
+.iceberg {
+    width: 200px;
+    height: 300px;
+    background: url('iceberg.png') no-repeat center/cover;
+    position: relative;
+}
+.iceberg-layer {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+.iceberg-layer:nth-child(1) { top: 0%; }
+.iceberg-layer:nth-child(2) { top: 20%; }
+.iceberg-layer:nth-child(3) { top: 40%; }
+.iceberg-layer:nth-child(4) { top: 60%; }
+.iceberg-layer:nth-child(5) { top: 80%; }
+.iceberg:hover .iceberg-layer {
+    opacity: 1;
+}
+
+
+.colors-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.color-box {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px; /* Закругленные углы */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Эффект при наведении */
+.color-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Определяем цвета */
+.gray { background-color: gray; color: white; }
+.blue { background-color: blue; color: white; }
+.white { background-color: white; color: black; border: 2px solid black; } /* Белый с черной рамкой */
+.orange { background-color: orange; color: white; }
+.black { background-color: black; color: white; }
+.red { background-color: red; color: white; }
+.violet { background-color:rgb(116, 3, 116); color:white;} 
+.pink { background-color: rgb(255, 103, 204); color: white;}
+
+.iceberg-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#iceberg {
+    background: linear-gradient(to bottom, #0077be, #005f99); /* Градиент воды */
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Элементы идут сверху вниз */
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding-top: 50px; /* Отступ сверху, чтобы заголовок не был в центре */
+}
+
+/* Контейнер для айсберга */
+.iceberg-container {
+    position: relative;
+    width: 300px; /* Ширина айсберга */
+    height: 400px; /* Высота айсберга */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; /* Отступ сверху */
+}
+
+/* Части айсберга */
+.iceberg-part {
+    border-radius: 0;
+}
+
+/* Верхушка */
+.iceberg-top {
+    top: 0;
+}
+
+/* Средняя часть */
+.iceberg-middle {
+    top: 80px;
+}
+
+/* Нижняя часть */
+.iceberg-bottom {
+    top: 160px;
+}
+
+/* Анимация при наведении */
+.iceberg-part:hover {
+    transform: translateY(-5px); /* Немного приподнимаем часть айсберга */
+}
+
+
+.iceberg:hover {
+    transform: scale(1.1);
+}
+
+.iceberg-info {
+    position: absolute;
+    bottom: -40px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.iceberg-container:hover .iceberg-info {
+    opacity: 1;
+}
+.iceberg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0; /* Убираем промежутки между частями */
+    margin-top: -30px; /* Подгони по высоте, если нужно */
+}
+
+.iceberg-part {
+    width: 300px; 
+    height: 200px;
+    object-fit: cover;
+    margin: -30px 0; /* Отрицательный margin для приближения */
+}
+
+/* Верхушка – треугольник вверх */
+.iceberg-top {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* Средняя часть – трапеция */
+.iceberg-middle {
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+}
+
+/* Бездна – треугольник вниз */
+.iceberg-bottom {
+    clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+    width: 300px;  /* Такой же размер, как у верхушки */
+    height: 200px;
+}
+/* Анимация плавного появления */
+.content {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Специальные стили для слоёв айсберга */
+#iceberg-top-section {
+    background: linear-gradient(to bottom, #b1eaff, #80cfff);
+    padding: 40px 20px;
+    border-radius: 20px;
+    color: #003344;
+}
+
+#iceberg-middle-section {
+    background: linear-gradient(to bottom, #008dd1, #004c80);
+    padding: 40px 20px;
+    border-radius: 20px;
+    color: #e0f7ff;
+}
+
+#iceberg-bottom-section {
+    background: linear-gradient(to bottom, #001a33, #000000);
+    padding: 40px 20px;
+    border-radius: 20px;
+    color: #ccc;
+}
